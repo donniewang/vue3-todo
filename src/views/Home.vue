@@ -6,7 +6,6 @@
       <van-col span="2" align="start" justify="center"></van-col>
       <van-col span="6" align="start" justify="center">not complete : {{ notCompleteCount }}</van-col>
       <van-col span="8" align="center" justify="center">
-      
       </van-col>
       <van-col span="2">
         <van-button
@@ -17,20 +16,37 @@
       </van-col>
       <van-col span="1"></van-col>
     </van-row>
-    <van-row v-for="item in todos.values" style="padding:0 10px;height:30px;line-height:30px;">
-      <van-col span="4" align="start">
+    <van-row style="height:10px;"></van-row>
+    <van-row style="padding:0 10px;height:35px;line-height:35px;background-color:#CCC">
+      <van-col span="5" align="start">
+        title
+      </van-col>
+      <van-col span="5" align="start">
+        content
+      </van-col>
+      <van-col span="5" align="start">
+        finish time
+      </van-col>
+      <van-col span="5" align="start">
+        status
+      </van-col>
+      <van-col span="4" align="end" justify="center">
+      </van-col>
+    </van-row>
+    <van-row v-for="item in todos.values" style="padding:0 10px;border-bottom:solid 0.5px #BBB;">
+      <van-col span="5" align="start" style="height:35px;line-height:35px;">
         {{ item.title }}
       </van-col>
-      <van-col span="6" align="start">
+      <van-col span="5" align="start" style="height:35px;line-height:35px;">
         {{ item.content }}
       </van-col>
-      <van-col span="4" align="start">
+      <van-col span="5" align="start" style="height:35px;line-height:35px;">
         {{ item.finishTime }}
       </van-col>
-      <van-col span="4" align="start">
+      <van-col span="5" align="start" style="height:35px;line-height:35px;">
         {{ item.status==1?"not complete":"completed" }}
       </van-col>
-      <van-col span="6" align="end" justify="center">
+      <van-col span="4" align="end" justify="center" style="height:35px;line-height:35px;display:flex;align-items:center;justify-content:end;">
         <van-button
           @click="showDeleteDialog(item)"
           type="primary"
@@ -52,7 +68,7 @@
       </van-col>
     </van-row>
   </van-col>
-  
+
   <van-popup v-model:show="isAddDialogShow" class="popup">
     <div style="padding: 15px; display: flex; justify-content: start">
       <span style="font-weight: bold">new to-do item</span>
