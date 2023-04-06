@@ -2,10 +2,10 @@
   <van-col>
     <van-row justify="center"><h1>To Do</h1></van-row>
     <van-row justify="end" align="center">
-      <van-col span="4" align="start" justify="center">completed : {{ completedCount }}</van-col>
-      <van-col span="2" align="start" justify="center"></van-col>
-      <van-col span="6" align="start" justify="center">not complete : {{ notCompleteCount }}</van-col>
-      <van-col span="8" align="center" justify="center">
+      <van-col span="3" align="start" justify="center">total : {{ totalCount }}</van-col>
+      <van-col span="5" align="start" justify="center">completed : {{ completedCount }}</van-col>
+      <van-col span="5" align="start" justify="center">not complete : {{ notCompleteCount }}</van-col>
+      <van-col span="6" align="center" justify="center">
       </van-col>
       <van-col span="2">
         <van-button
@@ -174,6 +174,8 @@ export default {
   setup() {
     console.log('setup');
 
+    const totalCount = computed(() => todos.values?.length);
+
     const completedCount = computed(() => todos.values?.filter((item) => item['status']==2).length);
 
     const notCompleteCount = computed(() => todos.values?.filter((item) => item['status']!=2).length);
@@ -268,6 +270,7 @@ export default {
     return {
       todos,
       loadToDo,
+      totalCount,
       completedCount,
       notCompleteCount,
       isAddDialogShow,
